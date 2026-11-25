@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>예약 문의 | 마음 키오스크</title>
+<meta name="description" content="축의금 키오스크 예약 문의 — 예식일, 예식장, 신랑·신부 성함, 연락처와 희망 옵션을 남겨 주시면 확인 후 연락드립니다.">
+<meta name="theme-color" content="#173c28">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="index.html" aria-label="마음 키오스크 홈"><span class="brand-text">마음 키오스크</span></a>
+    <nav class="nav" aria-label="주요 메뉴">
+      <a href="procedure.html">진행 절차</a>
+      <a href="about.html">서비스 소개</a>
+      <a href="reviews.html">사용후기</a>
+      <a href="reserve.html" aria-current="page">예약하기</a>
+    </nav>
+    <div class="header-actions">
+      <a class="btn btn--primary btn--sm" href="#apply">예약 문의</a>
+      <button class="nav-toggle" aria-label="메뉴 열기" aria-expanded="false"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Reservation</span>
+      <h1>예약 문의</h1>
+      <p>아래 내용을 남겨 주시면 담당자가 확인 후 연락드립니다.<br>예식일과 예식장만 정해져 있어도 문의 가능합니다.</p>
+      <div class="breadcrumb"><a href="index.html">홈</a> · 예약 문의</div>
+    </div>
+  </section>
+
+  <!-- 옵션 요약 -->
+  <section class="section section--tight">
+    <div class="container">
+      <div class="price-grid">
+        <div class="price-card">
+          <h3>키오스크만 대여</h3>
+          <p class="desc">안내 직원 포함 · 현금/카드/계좌이체</p>
+          <div class="price"><span class="amount">30만원</span></div>
+          <p class="deposit">예약금 3만원</p>
+        </div>
+        <div class="price-card is-featured">
+          <span class="price-tag">가장 많이 선택</span>
+          <h3>축의대 전담</h3>
+          <p class="desc">양측 전체 70만원 · 1측 50만원</p>
+          <div class="price"><span class="amount">70만원</span></div>
+          <p class="deposit">예약금 7만원</p>
+        </div>
+        <div class="price-card">
+          <h3>축의금 이체 QR</h3>
+          <p class="desc">계좌이체 축의 · 모바일 식권</p>
+          <div class="price"><span class="amount">20만원</span></div>
+          <p class="deposit">예약금 2만원</p>
+        </div>
+      </div>
+      <p class="price-note">안내 직원의 출장 거리에 따라 비용이 달라질 수 있으며, 짝꿍 이벤트(1인당 1만원·무제한) 할인이 적용됩니다.</p>
+    </div>
+  </section>
+
+  <!-- 예약 폼 -->
+  <section class="section section--cream" id="apply">
+    <div class="container">
+      <div class="reserve-layout">
+
+        <div class="form-card">
+          <h2>예약 신청서</h2>
+          <p class="form-desc"><span style="color:var(--accent)">*</span> 표시는 필수 입력 항목입니다.</p>
+
+          <div class="form-msg" role="status" aria-live="polite"></div>
+
+          <form id="reserve-form" novalidate>
+            <div class="field-row">
+              <div class="field">
+                <label for="weddingDate">예식 날짜 <span class="req">*</span></label>
+                <input type="date" id="weddingDate" name="weddingDate" required>
+              </div>
+              <div class="field">
+                <label for="weddingTime">예식 시간 <span class="opt-note">선택</span></label>
+                <select id="weddingTime" name="weddingTime">
+                  <option value="">시간 선택</option>
+                  <option>오전 10:00</option>
+                  <option>오전 10:30</option>
+                  <option>오전 11:00</option>
+                  <option>오전 11:30</option>
+                  <option>낮 12:00</option>
+                  <option>낮 12:30</option>
+                  <option>오후 1:00</option>
+                  <option>오후 1:30</option>
+                  <option>오후 2:00</option>
+                  <option>오후 2:30</option>
+                  <option>오후 3:00</option>
+                  <option>오후 4:00</option>
+                  <option>오후 5:00</option>
+                  <option>오후 6:00</option>
+                  <option>미정</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="venue">예식장 이름 <span class="req">*</span></label>
+              <input type="text" id="venue" name="venue" required placeholder="예) 강동 루벨 웨딩홀" autocomplete="off">
+            </div>
+
+            <div class="field">
+              <label for="venueAddress">예식장 주소 <span class="opt-note">선택 · 출장 거리 확인용</span></label>
+              <input type="text" id="venueAddress" name="venueAddress" placeholder="예) 서울 강동구 천호대로 000" autocomplete="off">
+            </div>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="groom">신랑 성함 <span class="req">*</span></label>
+                <input type="text" id="groom" name="groom" required placeholder="홍길동" autocomplete="off">
+              </div>
+              <div class="field">
+                <label for="bride">신부 성함 <span class="req">*</span></label>
+                <input type="text" id="bride" name="bride" required placeholder="김영희" autocomplete="off">
+              </div>
+            </div>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="phone">연락처 <span class="req">*</span></label>
+                <input type="tel" id="phone" name="phone" required placeholder="010-0000-0000" autocomplete="tel" inputmode="tel">
+              </div>
+              <div class="field">
+                <label for="email">이메일 <span class="opt-note">선택</span></label>
+                <input type="email" id="email" name="email" placeholder="example@email.com" autocomplete="email">
+              </div>
+            </div>
+
+            <div class="field">
+              <label>희망 옵션 <span class="req">*</span></label>
+              <div class="opt-group">
+                <label class="opt">
+                  <input type="radio" name="option" value="kiosk" data-label="키오스크만 대여 (30만원 · 예약금 3만원)">
+                  <span class="opt-body">
+                    <span class="opt-title"><span>키오스크만 대여</span><span class="opt-price">30만원</span></span>
+                    <span class="opt-desc">키오스크 1대 · 안내 직원 2명 / 현금·카드·계좌이체 / 예약금 3만원</span>
+                  </span>
+                </label>
+                <label class="opt">
+                  <input type="radio" name="option" value="desk-both" data-label="축의대 전담 — 양측 전체 (70만원 · 예약금 7만원)">
+                  <span class="opt-body">
+                    <span class="opt-title"><span>축의대 전담 · 양측 전체</span><span class="opt-price">70만원</span></span>
+                    <span class="opt-desc">키오스크 1대 · 직원 3명 / 축의대 전체 전담 / 예약금 7만원</span>
+                  </span>
+                </label>
+                <label class="opt">
+                  <input type="radio" name="option" value="desk-one" data-label="축의대 전담 — 1측만 (50만원 · 예약금 7만원)">
+                  <span class="opt-body">
+                    <span class="opt-title"><span>축의대 전담 · 1측만</span><span class="opt-price">50만원</span></span>
+                    <span class="opt-desc">신랑·신부 중 한쪽만 전담 / 예약금 7만원</span>
+                  </span>
+                </label>
+                <label class="opt">
+                  <input type="radio" name="option" value="qr" data-label="축의금 이체 QR 서비스 (20만원 · 예약금 2만원)">
+                  <span class="opt-body">
+                    <span class="opt-title"><span>축의금 이체 QR 서비스</span><span class="opt-price">20만원</span></span>
+                    <span class="opt-desc">계좌이체 축의 · 모바일 식권 발급 / 예약금 2만원</span>
+                  </span>
+                </label>
+                <label class="opt">
+                  <input type="radio" name="option" value="consult" data-label="상담 후 결정">
+                  <span class="opt-body">
+                    <span class="opt-title"><span>상담 후 결정</span><span class="opt-price">상담</span></span>
+                    <span class="opt-desc">하객 규모·예식장에 맞춰 안내드립니다.</span>
+                  </span>
+                </label>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="referrer">짝꿍 이벤트 추천인 <span class="opt-note">선택</span></label>
+              <input type="text" id="referrer" name="referrer" placeholder="추천해 주신 분의 성함 또는 연락처">
+              <p class="hint">추천해 준 분과 추천받은 분 모두 1인당 1만원 할인됩니다.</p>
+            </div>
+
+            <div class="field">
+              <label for="memo">문의 내용 <span class="opt-note">선택</span></label>
+              <textarea id="memo" name="memo" placeholder="하객 규모, 축의대 운영 방식, 궁금하신 점을 자유롭게 적어 주세요."></textarea>
+            </div>
+
+            <label class="consent">
+              <input type="checkbox" name="consent" required>
+              <span>예약 상담을 위해 <strong>성함·연락처·예식일·예식장</strong> 정보를 수집·이용하는 데 동의합니다. (<a href="privacy.html" target="_blank" rel="noopener">개인정보처리방침</a>)</span>
+            </label>
+
+            <button class="btn btn--primary btn--block" type="submit">신청서 보내기</button>
+          </form>
+
+          <div class="result" id="reserve-result">
+            <div class="result-head">
+              <span class="badge">✓</span>
+              <strong>신청 내용이 정리되었습니다</strong>
+            </div>
+            <ol class="steps">
+              <li>아래 내용을 확인한 뒤 <strong>‘메일로 보내기’</strong>를 눌러 주세요. 메일 앱이 열리면 그대로 전송하시면 됩니다.</li>
+              <li>메일 앱이 없다면 <strong>‘내용 복사’</strong> 후 카카오톡 채널로 붙여넣어 보내 주세요.</li>
+              <li>접수 확인 후 담당자가 연락처로 연락드립니다.</li>
+            </ol>
+            <div class="summary" id="reserve-summary"></div>
+            <div class="btn-row">
+              <a class="btn btn--primary" id="result-mail" href="#">메일로 보내기</a>
+              <button class="btn btn--outline" id="result-copy" type="button">내용 복사</button>
+              <a class="btn btn--kakao" data-kakao href="#">카카오톡으로 보내기</a>
+            </div>
+            <p class="copy-done">복사되었습니다. 카카오톡 채널 대화창에 붙여넣어 주세요.</p>
+          </div>
+        </div>
+
+        <aside>
+          <div class="side-card">
+            <h3>예약 절차</h3>
+            <ul>
+              <li>신청서 확인 → 담당자 연락</li>
+              <li>예식일·옵션 확정</li>
+              <li>예약금 입금 시 예약 확정</li>
+              <li>예식장 사전 협의 · 정산 양식 전달</li>
+            </ul>
+            <div class="bank-box" id="bank-box">
+              <span class="small" style="color:var(--muted)">예약금 입금 계좌</span>
+              <span class="acct" data-bank-line>예약 확인 후 안내드립니다</span>
+              <span class="small" data-bank-holder></span>
+            </div>
+          </div>
+
+          <div class="side-card">
+            <h3>이런 점 참고해 주세요</h3>
+            <ul>
+              <li>예식 <strong>2달 전까지</strong>는 무료 취소, 2달 이내는 전체 비용의 10% 수수료가 발생합니다(예약금 환불 불가).</li>
+              <li>안내 직원의 출장 거리에 따라 비용이 달라질 수 있습니다.</li>
+              <li>카드 결제 운영 시 예식 일주일 전까지 사업자등록번호를 키오스크에 등록합니다.</li>
+              <li>인기 날짜는 일찍 마감되니 가능한 한 미리 문의해 주세요.</li>
+            </ul>
+            <div class="kakao-box">
+              <a class="btn btn--kakao btn--block" data-kakao href="#">카카오톡 채널로 문의</a>
+              <p class="small">친구 추가 시 축의금 정산 엑셀 양식을 무료로 보내드립니다.</p>
+            </div>
+            <p class="small">이메일: <a data-email="text" href="#" style="color:var(--green-700)">heartkioskofficial@gmail.com</a></p>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a class="brand" href="index.html"><span class="brand-text">마음 키오스크</span></a>
+        <p>마음을 전하는, 마음 키오스크<br>서울·경기·인천 웨딩홀 어디든 찾아갑니다.</p>
+        <div class="footer-kakao"><a class="btn btn--kakao btn--sm" data-kakao href="#">카카오톡 채널 문의</a></div>
+      </div>
+      <nav class="footer-links" aria-label="바로가기">
+        <a href="procedure.html">진행 절차</a>
+        <a href="about.html">서비스 소개</a>
+        <a href="reviews.html">사용후기</a>
+        <a href="reserve.html">예약하기</a>
+        <a href="privacy.html">개인정보처리방침</a>
+      </nav>
+    </div>
+    <div class="footer-info">
+      <span>상호명: 마음 키오스크</span>
+      <span>대표자: 마음키오스크</span>
+      <span>사업자등록번호: 4881502333</span>
+      <span>사업장주소: 경기 광명시 광명로 877 (광명동, 한진아파트)</span>
+      <span>대표자 이메일: <a data-email="text" href="#">heartkioskofficial@gmail.com</a></span>
+    </div>
+    <div class="footer-bottom">© <span data-year>2026</span> 마음 키오스크. All rights reserved.</div>
+  </div>
+</footer>
+
+<a class="float-kakao" data-kakao href="#" aria-label="카카오톡으로 문의하기"><span class="dot"></span>카톡 문의</a>
+<script src="assets/js/config.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+/* 계좌 설정(config.js)이 채워져 있으면 계좌 안내 박스를 갱신 */
+(function () {
+  var c = window.HK_CONFIG || {};
+  var b = c.bank || {};
+  if (!b.bankName || !b.accountNumber) return;
+  var line = document.querySelector("[data-bank-line]");
+  var holder = document.querySelector("[data-bank-holder]");
+  if (line) line.textContent = b.bankName + " " + b.accountNumber;
+  if (holder) holder.textContent = "예금주: " + (b.holder || "");
+  if (c.phone) {
+    var box = document.querySelector(".side-card .small");
+  }
+})();
+</script>
+</body>
+</html>
